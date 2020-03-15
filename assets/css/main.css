@@ -207,10 +207,56 @@ footer a:hover {
   color: #269052;
 }
 
+.mobile-menu {
+  position: absolute;
+  background: white;
+  z-index: 4;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 50px;
+  text-align: center;
+  display: none;
+}
+
+.mobile-menu img {
+  position: absolute;
+  width: 20px;
+  top: 30px;
+  right: 10px;
+}
+
+.mobile-menu ul {
+  padding: 0px;
+  list-style: none;
+  font-family: Text;
+  font-weight: 700;
+}
+
+.mobile-menu ul li {
+  margin: 30px;
+}
+
+.mobile-menu ul li.active a {
+  color: #27ae60;
+}
+
 @media (max-width: 900px) {
   header img {
     height: 50px !important;
     margin-left: 5px !important;
+  }
+  header .menu {
+    width: 20px;
+    float: right;
+    margin-right: 10px;
   }
   header .menu ul {
     display: none;
