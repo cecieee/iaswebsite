@@ -8,6 +8,10 @@
   }
 }
 
+html,body{
+  scroll-behavior: smooth;
+}
+
 .main {
   height: 100vh;
 }
@@ -224,6 +228,9 @@ footer {
   padding-top: 50px;
   text-align: center;
   display: none;
+  -webkit-box-shadow: 3px 2px 6px 0px rgba(224,224,224,0.57);
+-moz-box-shadow: 3px 2px 6px 0px rgba(224,224,224,0.57);
+box-shadow: 3px 2px 6px 0px rgba(224,224,224,0.57);
 
 
   img{

@@ -39,7 +39,6 @@ $(document).ready(()=>{
             height: '100%'
         });
 
-        $(window).scrollTo(0)
     })
     
     
