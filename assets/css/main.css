@@ -20,6 +20,10 @@ html, body {
   margin-bottom: 80px;
 }
 
+#menu-btn {
+  display: none;
+}
+
 header {
   height: 80px;
   padding-top: 20px;
@@ -258,6 +262,9 @@ footer a:hover {
   header img {
     height: 50px !important;
     margin-left: 5px !important;
+  }
+  header #menu-btn {
+    display: block;
   }
   header .menu {
     width: 20px;
