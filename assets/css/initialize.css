@@ -1,0 +1,9 @@
+@font-face {
+    font-family: Highlights;
+    src: url("../fonts/Rubik/Rubik-Bold.ttf");
+  }
+  
+  @font-face {
+    font-family: Text;
+    src: url("../fonts/Roboto/Roboto-Regular.ttf");
+  }
