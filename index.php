@@ -1,3 +1,8 @@
+<?php
+    include 'logic.php';
+    $data = getData();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>IAS</title>
 
     <link rel="stylesheet" href="./assets/css/initialize.css">
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
@@ -55,12 +60,8 @@
         <section class="home container">
             <div class="row">
                 <div class="content col-md-6 col-sm-6">
-                    <h2>Heading Placeholder
-                        placeholder
-                    </h2>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </p>
+                    <h2><?= $data['heading']?></h2>
+                    <p><?= $data['subHeading']?></p>
                     <a href="#about">
                         <div class="button">KNOW MORE</div>
                     </a>
@@ -115,22 +116,24 @@
                 </div>
                 <div class="row mt-4">
                     <!-- Column -->
+
+                    <?php foreach($data['upcoming'] as $upcoming): ?>
+
                     <div class="col-md-4 on-hover">
                         <div class="card border-0 mb-4">
                             <a href="#"><img class="card-img-top"
-                                    src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/blog/blog-home/img3.jpg"
+                                    src="<?= $upcoming['image']?>"
                                     alt="wrappixel kit"></a>
                             <div
                                 class="date-pos date p-2 d-inline-block text-center rounded text-white position-absolute">
-                                July<span class="d-block">10</span></div>
+                                <?= $upcoming['date'][0]?>
+                                <span class="d-block"><?= $upcoming['date'][1]?></span></div>
                             <h5 class="act-heading font-weight-medium mt-3"><a href="#"
-                                    class="text-decoration-none link">Some Event Name</a></h5>
-                            <p class="act-content mt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                Voluptate unde quas dolore id enim quae nisi perspiciatis autem velit? Praesentium
-                                reiciendis vero eaque at. Dignissimos nemo sed totam nam doloribus.</p>
+                                    class="text-decoration-none link"><?= $upcoming['title']?></a></h5>
+                            <p class="act-content mt-3"><?= $upcoming['description']?></p>
                         </div>
                     </div>
-
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>
@@ -145,21 +148,23 @@
                 </div>
                 <div class="row mt-4">
                     <!-- Column -->
+                    <?php foreach($data['past'] as $past): ?>
+
                     <div class="col-md-4 on-hover">
                         <div class="card border-0 mb-4">
                             <a href="#"><img class="card-img-top"
-                                    src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/blog/blog-home/img3.jpg"
+                                    src="<?= $past['image']?>"
                                     alt="wrappixel kit"></a>
                             <div
                                 class="date-pos date p-2 d-inline-block text-center rounded text-white position-absolute">
-                                July<span class="d-block">10</span></div>
+                                <?= $past['date'][0]?>
+                                <span class="d-block"><?= $past['date'][1]?></span></div>
                             <h5 class="act-heading font-weight-medium mt-3"><a href="#"
-                                    class="text-decoration-none link">Some Event Name</a></h5>
-                            <p class="act-content mt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                Voluptate unde quas dolore id enim quae nisi perspiciatis autem velit? Praesentium
-                                reiciendis vero eaque at. Dignissimos nemo sed totam nam doloribus.</p>
+                                    class="text-decoration-none link"><?= $past['title']?></a></h5>
+                            <p class="act-content mt-3"><?= $past['description']?></p>
                         </div>
                     </div>
+                    <?php endforeach; ?>
 
                 </div>
             </div>
@@ -175,36 +180,23 @@
                 <div class="col-md-12">
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                            <?php for($i=0;$i<count($data['gallery']); $i++): ?>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="<?=$i?>" 
+                                class="<?php echo $i==0 ? "active" : ""; ?>" ></li>
+                            <?php endfor; ?>
                         </ol>
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img class="d-block w-100" src="./assets/images/dummy.jpg" alt="First slide">
+
+                            <?php foreach($data['gallery'] as $i => $gallery):?>
+
+                            <div class="carousel-item <?php echo $i==0? "active": "" ?>">
+                                <img class="d-block w-100" src="<?= $gallery['image'] ?>" alt="First slide">
                                 <div class="carousel-caption d-none d-md-block">
-                                    <h5>Some Event</h5>
+                                    <h5><?= $gallery['caption']?></h5>
                                 </div>
                             </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="./assets/images/dummy.jpg" alt="Second slide">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5>Some Event</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="./assets/images/dummy.jpg" alt="Third slide">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5>Some Event</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="./assets/images/dummy.jpg" alt="Third slide">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5>Some Event</h5>
-                                </div>
-                            </div>
+
+                            <?php endforeach;?>
                         </div>
                         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
                             data-slide="prev">
